@@ -20,15 +20,15 @@ app.use(express.static('static'))
 app.get('/', (request, response) => {
   response.sendFile('static/home.html', {root: __dirname})
 })
-app.get('/users', (request, response) => {
-  pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
-    if (error) {
-      throw error
-    }
-    response.status(200).json(results.rows)
-  })
-})
-app.post('/contact', (request, response) => {
+// app.get('/users', (request, response) => {
+//   pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
+//     if (error) {
+//       throw error
+//     }
+//     response.status(200).json(results.rows)
+//   })
+// })
+app.post('/contact', (request, response, next) => {
   let {name, ieeeId, college, year, team, email, skills} = request.body;
   console.log(request.body)
   pool.query(
@@ -36,7 +36,7 @@ app.post('/contact', (request, response) => {
     [name, ieeeId, college, year, team, email, skills], 
     (error, results) => {
       if (error) {
-        throw error;
+        next(error);
       }
       response.sendFile('static/acknowledgement.html', {root: __dirname});
   })

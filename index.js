@@ -29,8 +29,12 @@ app.get('/users', (request, response) => {
 })
 app.post('/register', (request, response) => {
   let name = request.body.name;
-  console.log(`name: ${name}`);
-  response.send(`registered ${name}`)
+  pool.query('INSERT INTO users (name) VALUES ($1) RETURNING *', [name], (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.send('registered successfully');
+  })
 })
 
 app.listen(port, () => {

@@ -15,6 +15,7 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('static'))
 
 app.get('/', (request, response) => {
   response.sendFile('static/home.html', {root: __dirname})

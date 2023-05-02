@@ -28,13 +28,17 @@ app.get('/users', (request, response) => {
     response.status(200).json(results.rows)
   })
 })
-app.post('/register', (request, response) => {
-  let name = request.body.name;
-  pool.query('INSERT INTO users (name) VALUES ($1) RETURNING *', [name], (error, results) => {
-    if (error) {
-      throw error;
-    }
-    response.send('registered successfully');
+app.post('/contact', (request, response) => {
+  let {name, ieeeId, college, year, team, email, skills} = request.body;
+  console.log(request.body)
+  pool.query(
+    'INSERT INTO users (name, ieee_id, college, year, team, email, skills) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', 
+    [name, ieeeId, college, year, team, email, skills], 
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.sendFile('static/acknowledgement.html', {root: __dirname});
   })
 })
 

@@ -63,7 +63,7 @@
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item lead">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#contactUs">Contact</a>
             </li>
             <li class="nav-item lead">
               <a class="nav-link" href="https://github.com/ShakyaMajumdar"
@@ -157,12 +157,83 @@
             </p>
           </div>
         </div>
+        <div class="card w-75 ml-10 mb-4 shadow rounded" id="contactUs">
+          <img src="img/contact.webp" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">
+              <span>Contact Us</span>
+            </h3>
+            <form action="/contact" method="post">
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" name="name" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">IEEE ID</label>
+                <input type="text" name="ieeeId" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">College</label>
+                <input type="text" name="college" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Year</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="year" value="ug1">
+                  <label class="form-check-label">UG 1</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="year" value="ug2">
+                  <label class="form-check-label">UG 2</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="year" value="ug3">
+                  <label class="form-check-label">UG 3</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="year" value="ug4">
+                  <label class="form-check-label">UG 4</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Team Name</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="team" value="tech">
+                  <label class="form-check-label">Tech Team</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="team" value="pr">
+                  <label class="form-check-label">PR Team</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="team" value="design">
+                  <label class="form-check-label">Design Team</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="team" value="content">
+                  <label class="form-check-label">Content Team</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="team" value="logistics">
+                  <label class="form-check-label">Logistics Team</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Skills</label>
+                <textarea type="textarea" name="skills" class="form-control"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
       </ul>
     </div>
-  <form action="/register" method="post">
-      <input type="text" name="name" placeholder="name">
-      <input type="submit" value="Submit">
-  </form>
+
   <script
     src="https://code.jquery.com/jquery-3.6.0.js"
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
